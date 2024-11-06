@@ -29,7 +29,6 @@ async function addStudent(req, res) {
         const id = req.body.id;
         const group = req.body.group;
         const email = req.body.email;
-        
 
         if (!email.includes('@') || !email.includes('.')) {
             return res.status(500).json({ message: 'Validation error' });
@@ -43,8 +42,18 @@ async function addStudent(req, res) {
     }
 }
 
+async function viewStudents(req, res) {
+    try {
+        const allResources = await readJSON('utils/student.json');
+        return res.status(201).json(allResources);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     readJSON,
     writeJSON,
-    addStudent
+    addStudent,
+    viewStudents
 };
