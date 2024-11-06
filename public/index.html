@@ -11,7 +11,7 @@
     <script src="js/student.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body onload="viewStudents()">
     <div class="container mt-5">
         <div class="row justify-content-center">
             <img src="images/logo.png">
@@ -24,9 +24,26 @@
                     Add Student
                 </button>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <table class="table table-striped table-striped-custom">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Group</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableContent">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
- 
+
     <!-- Modal -->
     <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="resourceModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -63,4 +80,3 @@
     </div>
 </body>
 </html>
- 
