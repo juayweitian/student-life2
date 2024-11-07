@@ -9,6 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
+const { addCourse, viewCourses } = require("./utils/CoursesUtil")
+app.post("/add-course", addCourse);
+app.get("/view-courses", viewCourses);
+
 app.get('/', (req, res) => {
 res.sendFile(__dirname + "/public/" + startPage);
 })
