@@ -9,6 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
+const { addStudent } = require('./utils/StudentUtils')
+app.post('/add-students', addStudent);
+
 app.get('/', (req, res) => {
 res.sendFile(__dirname + "/public/" + startPage);
 })
