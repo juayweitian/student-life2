@@ -17,8 +17,7 @@
             <img src="images/logo.png">
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-10">
-            </div>
+            <div class="col-md-10"></div>
             <div class="col-md-2">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resourceModal">
                     Add Student
@@ -44,7 +43,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Add Student Modal -->
     <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="resourceModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -74,6 +73,41 @@
                         </div>
                         <p align="right" id="message" class=""></p>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Student Modal -->
+    <div class="modal fade" id="editResourceModal" tabindex="-1" role="dialog" aria-labelledby="editResourceModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editResourceModalLabel">Edit Student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="editName" placeholder="Enter student name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="editEmail" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="group">Group</label>
+                            <input type="text" class="form-control" id="editGroup" placeholder="Enter group">
+                        </div>
+                        <p align="right" id="editMessage" class=""></p>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="updateButton" onclick="">Update Student</button>
                 </div>
             </div>
         </div>
