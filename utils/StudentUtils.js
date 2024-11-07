@@ -51,9 +51,40 @@ async function viewStudents(req, res) {
     }
 }
 
+async function editStudent(req, res) {
+    try {
+        const id = req.params.id;
+        const name = req.body.name;
+        const email = req.body.email;
+        const group = req.body.group;
+        const allResources = await readJSON('utils/student.json');
+        var modified = false;
+
+        for (var i = 0; i < allResources.length; i++) {
+            var curcurrResource = allResources[i];
+            if (curcurrResource.id == id) {
+                allResources[i].name = name;
+                allResources[i].email = email;
+                allResources[i].group = group;
+                modified = true;
+            }
+        }
+
+        if (modified) {
+            await fs.writeFile('utils/student.json', JSON.stringify(allResources), 'utf8');
+            return res.status(201).json({ message: 'Student updated successfully!' });
+        } else {
+            return res.status(500).json({ message: 'Error occurred, unable to edit!' });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     readJSON,
     writeJSON,
     addStudent,
-    viewStudents
+    viewStudents,
+    editStudent,
 };
