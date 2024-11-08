@@ -12,6 +12,12 @@ function addStudent() {
         return;
     }
 
+    if (!jsonData.email.includes('@') || !jsonData.email.includes('.')) {
+        document.getElementById("message").innerHTML = 'Invalid Email!';
+        document.getElementById("message").setAttribute("class", "text-danger");
+        return;
+    }
+
     var request = new XMLHttpRequest();
     request.open("POST", "/add-students", true);
     request.setRequestHeader('Content-Type', 'application/json');
