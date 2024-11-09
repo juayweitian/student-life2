@@ -29,7 +29,6 @@ function addStudent() {
             document.getElementById("message").innerHTML = 'Added Student: ' + jsonData.name + '!';
             document.getElementById("message").setAttribute("class", "text-success");
             document.getElementById("name").value = "";
-            // document.getElementById("id").value = "";
             document.getElementById("group").value = "";
             document.getElementById("email").value = "";
             window.location.href = 'index.html';
@@ -57,7 +56,6 @@ function viewStudents() {
                         '<td>' + response[i].group + '</td>' +
                         '<td>' +
                             '<button type="button" class="btn btn-warning" onclick="editStudent(\'' + JSON.stringify(response[i]).replaceAll('\"', '&quot;') + '\')">Edit</button> ' +
-                            '<button type="button" class="btn btn-danger" onclick="deleteStudent(' + response[i].id + ')">Delete</button>' +
                         '</td>' +
                     '</tr>';
         }
@@ -105,3 +103,5 @@ function updateResource(id) {
     };
     request.send(JSON.stringify(jsonData));
 }
+
+
