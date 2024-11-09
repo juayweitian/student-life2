@@ -9,9 +9,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
+
 const { addCourse, viewCourses } = require("./utils/CoursesUtil")
 app.post("/add-course", addCourse);
 app.get("/view-courses", viewCourses);
+
+const { addStudent, viewStudents, editStudent} = require('./utils/StudentUtils')
+app.post('/add-students', addStudent);
+app.get('/view-students', viewStudents);
+app.put('/edit-student/:id', editStudent);
+
 
 app.get('/', (req, res) => {
 res.sendFile(__dirname + "/public/" + startPage);
