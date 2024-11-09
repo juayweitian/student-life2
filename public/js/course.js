@@ -7,7 +7,7 @@ function addCourse() {
     jsonData.description = document.getElementById("description").value;
     jsonData.courseHead = document.getElementById("courseHead").value;
 
-    if (jsonData.name == "" || jsonData.studentsEnrolled == "" || jsonData.description == "") {
+    if (jsonData.name == "" || jsonData.studentsEnrolled == "" || jsonData.description == "" || jsonData.courseHead == "" ) {
         document.getElementById("message").innerHTML = 'All fields are required!';
         document.getElementById("message").setAttribute("class", "text-danger");
         return;
