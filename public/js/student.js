@@ -2,7 +2,6 @@ function addStudent() {
     var response = "";
     var jsonData = new Object();
     jsonData.name = document.getElementById("name").value;
-    // jsonData.id = document.getElementById("id").value;
     jsonData.group = document.getElementById("group").value;
     jsonData.email = document.getElementById("email").value;
 
@@ -83,6 +82,12 @@ function updateResource(id) {
 
     if (jsonData.name == "" || jsonData.email == "" || jsonData.group == "") {
         document.getElementById("editMessage").innerHTML = 'All fields are required!';
+        document.getElementById("editMessage").setAttribute("class", "text-danger");
+        return;
+    }
+
+    if (!jsonData.email.includes('@') || !jsonData.email.includes('.')) {
+        document.getElementById("editMessage").innerHTML = 'Invalid Email!';
         document.getElementById("editMessage").setAttribute("class", "text-danger");
         return;
     }
