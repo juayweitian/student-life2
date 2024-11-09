@@ -28,7 +28,7 @@ function addCourse() {
             document.getElementById("studentsEnrolled").value = "";
             document.getElementById("description").value = "";
             document.getElementById("courseHead").value = "";
-            window.location.href = 'index.html';
+            window.location.href = 'courses.html';
         } else {
             document.getElementById("message").innerHTML = 'Unable to add course!';
             document.getElementById("message").setAttribute("class", "text-danger");
