@@ -68,11 +68,11 @@ function editStudent(data) {
     document.getElementById("editName").value = selectedResource.name;
     document.getElementById("editEmail").value = selectedResource.email;
     document.getElementById("editGroup").value = selectedResource.group;
-    document.getElementById("updateButton").setAttribute("onclick", 'updateResource("' + selectedResource.id + '")');
+    document.getElementById("updateButton").setAttribute("onclick", 'updateStudent("' + selectedResource.id + '")');
     $('#editResourceModal').modal('show');
 }
 
-function updateResource(id) {
+function updateStudent(id) {
     console.log(id);
     var response = "";
     var jsonData = new Object();
