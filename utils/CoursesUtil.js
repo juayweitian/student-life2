@@ -45,7 +45,43 @@ async function viewCourses(req, res) {
         return res.status(500).json({message: error.message});
     }
 }
-   
+
+async function editCourses(req, res) { 
+    try { 
+        const id = req.params.id;
+        const name = req.body.name;
+        const studentsEnrolled = req.body.studentsEnrolled;
+        const description = req.body.description;
+        const courseHead = req.body.courseHead;
+ 
+        const allCourses = await readJSON('utils/courses.json');
+
+        var modified = false; 
+ 
+        for (var i = 0; i < allCourses.length; i++) { 
+            var curcurrCourse = allCourses[i]; 
+            if (curcurrCourse.id == id){ 
+                allCourses[i].name = name; 
+                allCourses[i].studentsEnrolled = studentsEnrolled; 
+                allCourses[i].description = description;
+                allCourses[i].courseHead = courseHead;
+ 
+                modified = true; 
+            }    
+        }
+
+        if (modified) { 
+            await fs.writeFile('utils/courses.json', JSON.stringify(allCourses), 'utf8'); 
+            return res.status(201).json({ message: 'Course modified successfully!' }); 
+            
+        } else { 
+            return res.status(500).json({ message: 'Error occurred, unable to modify!' });
+        } 
+    } catch (error) { 
+        return res.status(500).json({ message: error.message }); 
+    } 
+}
+
 module.exports = {
-    readJSON, writeJSON, addCourse, viewCourses
+    readJSON, writeJSON, addCourse, viewCourses, editCourses
 };
