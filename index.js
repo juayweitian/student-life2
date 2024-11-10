@@ -10,9 +10,10 @@ app.use(bodyParser.json());
 app.use(express.static("./public"));
 
 
-const { addCourse, viewCourses } = require("./utils/CoursesUtil")
+const { addCourse, viewCourses, editCourses } = require("./utils/CoursesUtil")
 app.post("/add-course", addCourse);
 app.get("/view-courses", viewCourses);
+app.put('/edit-course/:id', editCourses);
 
 const { addStudent, viewStudents, editStudent} = require('./utils/StudentUtils')
 app.post('/add-students', addStudent);
