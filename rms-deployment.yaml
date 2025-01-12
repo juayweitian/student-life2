@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: # Metadata about the Deployment
+  name: rms-deployment
+spec: # Defines the desired state of the Deployment
+  replicas: 2 # Ensures that two pods running the specified container are always available
+  selector:
+    matchLabels:
+      app: rms-docker-img
+  template: # Defines the pod template used by the Deployment
+    metadata: # Specifies the pod's metadata
+      labels:
+        app: rms-docker-img
+    spec: # Specifies the container(s) to run
+      containers:
+      - name: rms-container
+        image: juayweitian81/rms-docker-img:latest
+        ports:
+        - containerPort: 5050 # Specifies the port that the application listens on
