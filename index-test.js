@@ -15,11 +15,10 @@ app.post("/add-course", addCourse);
 app.get("/view-courses", viewCourses);
 app.put('/edit-course/:id', editCourses);
 
-const { addStudent, viewStudents, editStudent} = require('./utils/StudentUtils')
+const { addStudent, viewStudents, editStudent} = require('./utils/AddStudentUtils')
 app.post('/add-students', addStudent);
 app.get('/view-students', viewStudents);
 app.put('/edit-student/:id', editStudent);
-
 
 app.get('/', (req, res) => {
 res.sendFile(__dirname + "/instrumented/" + startPage);

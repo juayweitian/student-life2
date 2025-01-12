@@ -70,12 +70,24 @@ async function editStudent(req, res) {
             }
         }
 
-        if (modified) {
+        var symbols = /^[a-zA-Z0-9 ]+$/;
+
+        if (name == "" || email == "" || group == ""){
+            return res.status(500).json({ message: 'All fields are required' });
+        }
+        else if (!email.includes('@') || !email.includes('.')){
+            return res.status(500).json({ message: 'Invalid email format' });
+        }
+        else if (group.length > 15){
+            return res.status(500).json({ message: 'Invalid group input length' })
+        }
+        else if (!symbols.test(group)) {
+            return res.status(500).json({ message: 'Invalid group input characters'})
+        }
+        else if (modified) {
             await fs.writeFile('utils/student.json', JSON.stringify(allResources), 'utf8');
             return res.status(201).json({ message: 'Student updated successfully!' });
-        } else {
-            return res.status(500).json({ message: 'Error occurred, unable to edit!' });
-        }
+        } 
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }

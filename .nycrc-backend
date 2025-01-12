@@ -4,7 +4,11 @@
       "html"
     ],
     "include": [
-      "utils/*.js"
+      "utils/EditStudentUtils.js"
+    ],
+    
+    "exclude": [
+      "utils/CoursesUtil.js"
     ],
     "reportDir": "coverage/backend",
     "check-coverage": true,

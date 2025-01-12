@@ -15,9 +15,7 @@ app.post("/add-course", addCourse);
 app.get("/view-courses", viewCourses);
 app.put('/edit-course/:id', editCourses);
 
-const { addStudent, viewStudents, editStudent} = require('./utils/AddStudentUtils')
-app.post('/add-students', addStudent);
-app.get('/view-students', viewStudents);
+const {editStudent} = require('./utils/EditStudentUtils')
 app.put('/edit-student/:id', editStudent);
 
 app.get('/', (req, res) => {
