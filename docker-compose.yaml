@@ -5,7 +5,7 @@ services:  # This starts the services section
     build:  # Build configuration
       context: .  # Use the current directory as the build context
       dockerfile: Dockerfile  # Use the Dockerfile in the current directory
-    image: juayweitian81/rms-docker-img:latest  # Name and tag of the Docker image
+    image: juayweitian81/rms-docker-img:v2  # Name and tag of the Docker image
     container_name: rms-docker-container  
     ports:
       - "8000:5050"  
